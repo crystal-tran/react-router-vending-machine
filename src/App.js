@@ -3,7 +3,8 @@ import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import Snack from './Snack';
 import VendingMachine from './VendingMachine';
 
-const defaultSnacks = ["chips", "sardines", "coke"];
+
+const DEFAULT_SNACKS = ["chips", "sardines", "coke"];
 
 /** Renders Vending Machine app
  *
@@ -14,7 +15,7 @@ const defaultSnacks = ["chips", "sardines", "coke"];
  * App -> { VendingMachine, Snack }
  */
 
-function App({ snacks = defaultSnacks }) {
+function App({ snacks = DEFAULT_SNACKS }) {
   return (
     <div className="App">
       <BrowserRouter>
