@@ -1,27 +1,28 @@
 import React from 'react';
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import Nav from './Nav';
+import { Link } from "react-router-dom";
 
-
-/** Displays snack links
+/** Render Link components for each snack
  *
- * Props: None
+ * Props:
+ * - snacks: an array like ["chips",...]
  *
  * State: None
  *
- * Vending Machine -> {Nav, Snack}
+ * App -> Vending Machine
  */
 
-function VendingMachine() {
+function VendingMachine({ snacks }) {
   return (
     <div className="VendingMachine">
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/snack/:name" element={<Snack />} />
-        </Routes>
-      </BrowserRouter>
-
+      <h1>Vending Machine!</h1>
+      <h2>Snack options:</h2>
+      <ul>
+        {snacks.map(s => (
+          <li key={s}>
+            <Link to={`/snack/${s}`}>{s}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
